@@ -1,38 +1,84 @@
-.App {
+
+.see-more{
+  float:right;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+.form {
+  background: #0e101c;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+p.warning {
+  color: #bf1650;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* p::before {
+  display: inline;
+  content: "⚠ ";
+} */
+
+input , select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgb(90, 90, 90);
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+label {
+  line-height: 2;
+  text-align: left;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 0px !important;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 200;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button,
+input[type="submit"] {
+  background: #ec5990;
   color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 20px;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
 }
 
-.App-link {
-  color: #61dafb;
+
+input[type="submit"]:hover {
+  background: #bf1650;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="button"]:active,
+input[type="submit"]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
 }
+
+input:disabled {
+  opacity: 0.4;
+}
+
+input[type="button"]:hover {
+  transition: 0.3s all;
+}
+
