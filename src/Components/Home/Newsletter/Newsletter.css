@@ -1,0 +1,15 @@
+div#newsletter {
+    margin-top: 50px;
+    background-color: #f6f9fc;
+    color: rgb(13, 3, 44);
+    padding: 79px 0;
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.newsletter.MuiButton-containedSecondary {
+    border-radius: 0 ;
+    padding: 7px;
+}
+input.newsletterInput {
+    border-radius: 0 ;
+    border: 1px solid #f50057;
+    padding: 6px;
+}

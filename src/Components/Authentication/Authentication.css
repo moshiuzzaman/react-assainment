@@ -1,6 +1,14 @@
-.model-body{
+.model-body {
     padding-top: 0 !important;
 }
-.modal-header{
+
+.modal-header {
     padding: 0 !important;
+}
+
+.loginForm input {
+    min-width: 381px !important;
+}
+.loginSingUP {
+    margin-top: 70px;
 }

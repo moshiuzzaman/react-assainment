@@ -1,0 +1,20 @@
+.cart-header{
+    
+}
+.cart-item-details p {
+    margin: 0;
+    font-size: 14px;
+}
+.cart-item-image img {
+    max-width: 125px;
+}
+.single-cart-item {
+    border-bottom: 1px solid rgb(180, 178, 178);
+}
+.cart-item-quantity .cart-item-remove-button{
+    width: 100% !important;
+}
+.cart-sidebar {
+    padding: 25px;
+    margin-top: -117px;
+}

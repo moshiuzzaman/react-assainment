@@ -1,0 +1,27 @@
+
+
+.footer-section {
+    padding-top: 91px;
+    background: linear-gradient(45deg, white, #ffffff85) , url('https://i.ibb.co/xzkfnDk/map.jpg');
+    background-size: cover;
+}
+.footer-section li {
+    list-style: none;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.footerIcons {
+    font-size: 47px;
+    padding: 13px;
+    background: #239f9f;
+    margin: 8px;
+    color: white;
+    border-radius: 39px;
+    border: 1px solid #239f9f;
+    cursor: pointer;
+}
+.footerIcons:hover{
+    background: none;
+    color: #239f9f; 
+    
+}

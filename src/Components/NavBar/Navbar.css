@@ -1,0 +1,9 @@
+#navbar{
+    background-color: #f6f9fc;
+    color: rgb(13, 3, 44);
+}
+.ml-auto.navbar-nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0px 17px;
+}

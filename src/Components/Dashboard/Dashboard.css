@@ -1,0 +1,13 @@
+p.ordered-products span {
+    color: #ea7272;
+}
+
+p.ordered-products {
+    font-size: 10px;
+    margin: 0 0 6px 0;
+    display: inline-block;
+}
+
+.productTableImage {
+    width: 65px;
+}

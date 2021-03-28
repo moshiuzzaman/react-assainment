@@ -1,9 +1,10 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 import NavBar from '../NavBar/NavBar';
-import Header from './Header';
+import Header from './Header/Header';
 import "./Home.css"
-import Newsletter from './Newsletter';
-import TrendingProducts from './TrendingProducts';
+import Newsletter from './Newsletter/Newsletter';
+import TrendingProducts from './TrandingProducts/TrendingProducts';
 
 const Home = () => {
     return (
@@ -12,7 +13,7 @@ const Home = () => {
             <Header/>
             <TrendingProducts/>
             <Newsletter/>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     );
 };

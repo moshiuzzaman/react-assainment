@@ -1,0 +1,18 @@
+.feture1{
+    background-color: #e9f3fc;
+}
+.feture2{
+    background-color:  #f7f2ee ;
+}
+.feture3{
+    background-color:  #e2f1f0;
+}
+.feature-card{
+    margin: 10px 5px;
+}
+.featureDetails h6 {
+    font-weight: 400;
+}
+.featureDetails button{
+    font-size: 10px;
+}

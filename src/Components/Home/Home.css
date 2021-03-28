@@ -1,16 +1,13 @@
+.header {
+    background-color: #f6f9fc;
+    padding: 20px;
+}
 .header-image{
     width: 100%;
 }
 .header-features {
     padding: 31px;
 }
-.searchButton {
-    background: linear-gradient(to right, #1cd8ba, #06abee);
-    color: white !important;
-    padding: 10px 24px !important;
-    border: none;
-    margin: 0 10px
-  }
 
 .input-group input{
     width: 400px;
@@ -19,6 +16,7 @@
     background-color: white;
     
   }
+  
   h3.product-title {
     font-size: .8rem;
     height: 35px;
@@ -33,12 +31,10 @@ p.product-price {
     font-size: 0.8rem;
     margin: 2px 2px;
 }
-button.add-to-cart.btn.btn-primary {
+button.add-to-cart, .newsletter {
     display: block;
     width: 100%;
     margin: 7px 0;
-    background-color: #fc6969;
-    border-color: #fc6969;
 }
 button.add-to-cart.btn.btn-primary:hover{
     
@@ -59,4 +55,17 @@ button.quick-view{
     margin: 7px;
     padding: 13px;
     border: 1px solid #e6dfdf;
+}
+.product-image img {
+    height: 100%;
+    width: auto;
+}
+
+.product-image {
+    height: 249px;
+    overflow: hidden;
+    padding: 10px;
+}
+.featureImage img {
+    width: 100% !important;
 }
