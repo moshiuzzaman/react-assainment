@@ -10,6 +10,7 @@ import jwt_decode from "jwt-decode";
 
 import './Navbar.css'
 import { logOutUser } from '../../Store/Actions/UsersAction';
+import { SiShopify } from 'react-icons/si';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -30,7 +31,7 @@ const NavBar = () => {
     let decoded
     token === null ? decoded = {} : decoded = jwt_decode(token);
     const finalUser = { ...user, ...decoded }
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
 
     const handleLogOut = () => {
         sessionStorage.clear()
@@ -41,11 +42,16 @@ const NavBar = () => {
         <div id="navbar">
             <Container className="">
                 <Navbar expand="lg">
-                    <Navbar.Brand href="#home">MINI SHOP</Navbar.Brand>
+                    <Link to="/">
+                        <Navbar.Brand>
+                        <SiShopify className="header-logo"/>
+                        </Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav ">
                         <Nav className="ml-auto">
                             <Link to="/">Home</Link>
+                            {/* <Link to="/shop">Shop</Link> */}
                             {
                                 finalUser.role ?
                                     <>

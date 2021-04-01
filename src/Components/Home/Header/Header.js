@@ -6,9 +6,9 @@ import { Button, Grid } from '@material-ui/core';
 
 const Header = () => {
     return (
-        <div className="header">
+        <div className="header p-5">
             <Container>
-                <Grid container spacing={3}  alignItems="center">
+                <Grid className="p-5" container spacing={3}  alignItems="center">
                     <Grid item  md={9} sm={12}>
                         <Grid container alignItems="center">
                             <Grid item md={6} sm={6}>

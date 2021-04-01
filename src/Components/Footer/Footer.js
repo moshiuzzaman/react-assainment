@@ -1,25 +1,20 @@
 import React from 'react';
 import './Footer.css'
 import { FaFacebookF, FaTwitter } from 'react-icons/fa';
+import { SiShopify } from 'react-icons/si';
 import { ImGooglePlus } from 'react-icons/im';
 import { Box, Button, Container, Grid, Link, Typography } from '@material-ui/core';
 
 const Footer = () => {
     return (
-        <div className='footer-section mt-5'>
+        <div className='footer-section'>
             <Container >
                 <Grid container>
-                    <Grid item className='m-0 p-0' md={3}>
-                        <ul>
-                            <p className='section-name' ><strong>Useful link</strong></p>
-                            <li>Emergency Dental Care</li>
-                            <li>Yards</li>
-                            <li>Check Up</li>
-                            <li>Treatment of Personal Diseases</li>
-                            <li>Check Up</li>
-                        </ul>
+                    <Grid item align="center"  md={3}>
+                        <SiShopify className="footer-logo"/>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non labore aperiam nam nesciunt maxime delectus dolor et odit amet ea possimus impedit qui, accusamus, eveniet deserunt velit, veniam ipsum quod.</p>
                     </Grid>
-                    <Grid item className='m-0 p-0' md={3}>
+                    <Grid item md={3}>
                         <ul>
                             <p className='section-name'><strong>Service</strong></p>
                             <li>Emergency Dental Care</li>
@@ -31,7 +26,7 @@ const Footer = () => {
                             <li>Check Up</li>
                         </ul>
                     </Grid>
-                    <Grid item className='m-0 p-0' md={3}>
+                    <Grid item  md={3}>
                         <ul>
                             <p className='section-name' ><strong>Oral Health</strong></p>
                             <li>Emergency Dental Care</li>
@@ -51,18 +46,17 @@ const Footer = () => {
                             <ImGooglePlus className='footerIcons' />
                             <FaTwitter className='footerIcons' />
                         </div>
-                        <h5 className='mt-5'>Call Now</h5>
-                        <Button> +25421554</Button>
+                        <h5>Call Now</h5>
+                        <Button variant="outlined" color="secondary"> +25421554</Button>
                     </Grid>
                 </Grid>
-                <Box pt={4} className="pb-4">
+                <Box pt={4} pb={4} className=" footer-copyright ">
                     <Typography variant="body2" color="textSecondary" align="center">
                         {'Copyright © '}
                         <Link color="inherit" href="https://material-ui.com/">
                             Your Website
                         </Link>{' '}
                         {new Date().getFullYear()}
-                        {'.'}
                     </Typography>
                 </Box>
             </Container>

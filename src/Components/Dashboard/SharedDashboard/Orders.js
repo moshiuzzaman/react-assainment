@@ -1,8 +1,8 @@
-import {  Grid,  Paper } from '@material-ui/core';
+import { Grid, NativeSelect, Paper } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { allOrders, changeOrderStatus } from '../../../Store/Actions/OrdersAction';
+import { allOrders, changeOrderStatus, differentOrders, } from '../../../Store/Actions/OrdersAction';
 import clsx from 'clsx';
 
 // iodsguogsiusgggggggggg
@@ -13,7 +13,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { Dropdown, SplitButton } from 'react-bootstrap';
 
 const columns = [
     { id: 'name', label: 'Name', minWidth: 100 },
@@ -58,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Orders = () => {
+const Orders = ({ route }) => {
 
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
@@ -74,21 +73,32 @@ const Orders = () => {
         setPage(0);
     };
 
-
-    const handleClose = (status, id) => {
+    const handleChangeStatus = (e, id) => {
+        const status = e.target.value
         dispatch(changeOrderStatus(status, id))
-        
+
     };
 
-
-
-    const paperRoot= clsx(classes.paper, classes.root);
-
-    const orders = useSelector(state => state.orders.orders)
+    let orders
+    const allDifferentOrders = useSelector(state => state.orders.differentOrders)
+    const AllOrders = useSelector(state => state.orders.orders)
     const dispatch = useDispatch()
     useEffect(() => {
+        dispatch(differentOrders(route))
         dispatch(allOrders())
-    }, [dispatch])
+    }, [dispatch,route])
+    if (route === "pending" || route === "done" || route === "ongoing") {
+        orders = allDifferentOrders
+    } else if (route === "orders") {
+
+        orders = AllOrders
+    }
+
+
+    const paperRoot = clsx(classes.paper, classes.root);
+
+
+
     return (
         <div>
             <Grid container spacing={1}>
@@ -138,14 +148,23 @@ const Orders = () => {
                                                     }
                                                 </TableCell>
                                                 <TableCell>
-                                                    <SplitButton
-                                                        className={`statusButton-${order.status}`}
-                                                        title={order.status}
-                                                    >
-                                                        <Dropdown.Item className='pending-dropdownItem' onClick={() => handleClose('pending', order._id)}>Pending</Dropdown.Item>
-                                                        <Dropdown.Item className='ongoing-dropdownItem' onClick={() => handleClose('ongoing', order._id)}>Ongoing</Dropdown.Item>
-                                                        <Dropdown.Item className='done-dropdownItem' onClick={() => handleClose('done', order._id)}>Done</Dropdown.Item>
-                                                    </SplitButton>
+                                                    {
+                                                        order.status === "done"
+                                                            ? <p>{order.status}</p>
+                                                            :
+                                                            <NativeSelect
+                                                                value={order.status}
+                                                                onChange={(e) => handleChangeStatus(e, order._id)}
+                                                            >
+                                                                <option value="">Order Status</option>
+                                                                {
+                                                                    order.status !== "ongoing" && <option value="pending">Pending</option>
+                                                                }
+                                                                <option value="ongoing">Ongoing</option>
+                                                                <option value="done">Done</option>
+
+                                                            </NativeSelect>
+                                                    }
                                                 </TableCell>
                                             </TableRow>
                                         );

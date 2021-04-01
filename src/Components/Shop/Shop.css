@@ -1,0 +1,15 @@
+ul.sidebar-Ul {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+li.sidebar-li {
+    list-style: none;
+    cursor: pointer;
+    background: rgb(206, 201, 201);
+    display: block;
+    width: 100%;
+    margin: 2px;
+    border-radius: 20px
+}

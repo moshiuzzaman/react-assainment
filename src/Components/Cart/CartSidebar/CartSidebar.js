@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 import { makeOrder } from '../../../Store/Actions/CartAction';
 
 const CartSidebar = () => {
-    const history=useHistory()
+    const history = useHistory()
     const cart = useSelector(state => state.cart.cart)
     const dispatch = useDispatch()
     const subtotal = cart.reduce((res, item) => {
@@ -28,17 +28,36 @@ const CartSidebar = () => {
         }
     }
     return (
-        <Grid item md={4} sm={12} align="center">
+        <Grid item md={4} xs={12} align="center">
             <Paper className="cartSidebar">
-                <div className="cart-sidebar">
+                <div className="sidebar">
                     <h5>Subtotal</h5>
                     <h1>${subtotal}</h1>
                     <p>Shipping estimates</p>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input type="text" placeholder="name" name="name" ref={register({ required: true })} />
-                        <input type="text" placeholder="city" name="city" ref={register({ required: true })} />
-                        <input type="number" placeholder="mobile" name="mobile" ref={register({ required: true, min: 0, maxLength: 11 })} />
-                        <textarea placeholder="comment" name="comment" ref={register} />
+                        <input
+                            type="text"
+                            placeholder="name"
+                            name="name"
+                            ref={register({ required: true })}
+                        />
+                        <input
+                            type="text"
+                            placeholder="city"
+                            name="city"
+                            ref={register({ required: true })}
+                        />
+                        <input
+                            type="number"
+                            placeholder="mobile"
+                            name="mobile"
+                            ref={register({ required: true, min: 0, maxLength: 11 })}
+                        />
+                        <textarea
+                            placeholder="comment"
+                            name="comment"
+                            ref={register}
+                        />
                         {
                             errors && <p></p>
                         }

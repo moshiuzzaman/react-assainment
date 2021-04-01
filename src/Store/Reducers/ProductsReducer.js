@@ -1,4 +1,4 @@
-import { CREATE_PRODUCTS, DELETE_PRODUCT, PAGINATION_PRODUCTS, PRODUCTS, SELECTED_PRODUCT } from "../Actions/ProductsAction"
+import { CREATE_PRODUCTS, DELETE_PRODUCT, PAGINATION_PRODUCTS, PRODUCTS, QUICK_VIEW } from "../Actions/ProductsAction"
 
 
 const initialState = {
@@ -19,7 +19,7 @@ const productsReducer = (state = initialState, action) => {
         case DELETE_PRODUCT:
             alert(action.payload.message)
             return { ...state, products: [...action.payload.products] }
-        case SELECTED_PRODUCT:
+        case QUICK_VIEW:
             return { ...state, selectedProduct: action.payload[0] }
         default:
             return state

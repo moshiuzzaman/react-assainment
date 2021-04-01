@@ -27,7 +27,6 @@ const LoginForm = ({ setIsLogIn }) => {
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = async (data) => {
         await dispatch(loginUser(data))
-
     };
     if (users.isLogIn) {
         history.replace(from);
@@ -46,16 +45,30 @@ const LoginForm = ({ setIsLogIn }) => {
                     <Avatar>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
+                    <Typography
+                        component="h1"
+                        variant="h5">
                         Sign in
                  </Typography>
                 </Grid>
-                <Grid item md={6} >
+                <Grid
+                    item
+                    md={6} >
                     <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
                         <label htmlFor="">Email address</label>
-                        <input type="email" placeholder="email" name="email" ref={register({ required: true, pattern: /\S+@\S+\.\S+/i })} />
+                        <input
+                            type="email"
+                            placeholder="email"
+                            name="email"
+                            ref={register({ required: true, pattern: /\S+@\S+\.\S+/i })}
+                        />
                         <label htmlFor="">Password</label>
-                        <input type="password" placeholder="password" name="password" ref={register({ required: true })} />
+                        <input
+                            type="password"
+                            placeholder="password"
+                            name="password"
+                            ref={register({ required: true })}
+                        />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"

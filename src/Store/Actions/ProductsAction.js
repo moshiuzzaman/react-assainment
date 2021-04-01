@@ -3,7 +3,7 @@ import axios from "axios"
 export const PRODUCTS = "PRODUCTS"
 export const CREATE_PRODUCTS="CREATE_PRODUCTS"
 export const DELETE_PRODUCT="DELETE_PRODUCT"
-export const SELECTED_PRODUCT="SELECTED_PRODUCT"
+export const QUICK_VIEW="QUICK_VIEW"
 export const PAGINATION_PRODUCTS="PAGINATION_PRODUCTS"
 
 export const getPaginationProducts = (page) => {
@@ -70,7 +70,7 @@ export const selectedProduct=(id)=>{
         })
             .then(res => {
                 dispatch({
-                    type: SELECTED_PRODUCT,
+                    type: QUICK_VIEW,
                     payload: res.data
                 })
             }).catch(err => {

@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import StorefrontIcon from '@material-ui/icons/Storefront';
@@ -14,6 +15,7 @@ import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { logOutUser } from '../../../Store/Actions/UsersAction';
+import { FcProcess } from 'react-icons/fc';
 
 const DashboardSidebar = ({ setExactRoute }) => {
     const history = useHistory()
@@ -56,13 +58,32 @@ const DashboardSidebar = ({ setExactRoute }) => {
                         <ListItemIcon>
                             <ShoppingCartIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Orders" />
+                        <ListItemText primary="All Orders" />
                     </ListItem>
+                    <ListItem button onClick={() => setExactRoute('Ongoing Orders')}>
+                        <ListItemIcon>
+                            <FcProcess />
+                        </ListItemIcon>
+                        <ListItemText primary="Ongoing Orders" />
+                    </ListItem>
+                    <ListItem button onClick={() => setExactRoute('Complete Orders')}>
+                        <ListItemIcon>
+                            <CheckCircleIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Complete Orders" />
+                    </ListItem>
+                    
                     <ListItem button onClick={() => setExactRoute('Create Product')}>
                         <ListItemIcon>
                             <AddBoxIcon />
                         </ListItemIcon>
                         <ListItemText primary="CreateProducts" />
+                    </ListItem>
+                    <ListItem button onClick={() => setExactRoute('Add Users')}>
+                        <ListItemIcon>
+                            < PeopleIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Add Users" />
                     </ListItem>
                     <ListItem button onClick={() => setExactRoute('Users')}>
                         <ListItemIcon>

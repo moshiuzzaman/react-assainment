@@ -1,22 +1,20 @@
-import { Avatar, Container, Grid, Link, Typography } from '@material-ui/core';
+import { Avatar, Container, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { singUpUser } from '../../Store/Actions/UsersAction';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Alert from '@material-ui/lab/Alert';
+import { addUser } from '../../../Store/Actions/UsersAction';
 
-
-
-const SingUpForm = ({ setIsLogIn }) => {
+const MakeUser = ({setExactRoute}) => {
     const dispatch = useDispatch()
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
-        dispatch(singUpUser({...data, role:"user"}))
-        setIsLogIn(true)
+        dispatch(addUser(data))
+        setExactRoute("Users")
     }
     return (
-        <Container className="loginSingUP">
+        <Container >
             <Grid
                 container
                 direction="column"
@@ -25,10 +23,10 @@ const SingUpForm = ({ setIsLogIn }) => {
             >
                 <Grid item md={6} align="center">
                     <Avatar >
-                        <LockOutlinedIcon />
+                        <PersonAddIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign UP
+                        Add A User
              </Typography>
                 </Grid>
                 <Grid item md={6} >
@@ -40,7 +38,7 @@ const SingUpForm = ({ setIsLogIn }) => {
                                 placeholder="name"
                                 name="name"
                                 ref={register({ required: true })} />
-                            
+
                             <label htmlFor="">Email address</label>
                             <input
                                 type="email"
@@ -50,6 +48,11 @@ const SingUpForm = ({ setIsLogIn }) => {
                                     required: true, pattern: /\S+@\S+\.\S+/i
                                 })}
                             />
+                            <label htmlFor="">User Role</label>
+                            <select name="role" ref={register({ required: true })}>
+                                <option value="admin">Admin</option>
+                                <option value="super admin"> Super Admin</option>
+                            </select>
                             <label htmlFor="">Password</label>
                             <input
                                 type="text"
@@ -66,13 +69,7 @@ const SingUpForm = ({ setIsLogIn }) => {
                             }
                             <input type="submit" />
                         </form>
-                        <Grid container>
-                            <Grid item md={12}>
-                                <Link onClick={() => setIsLogIn(true)} variant="body2">
-                                    {"Already have an account? Sign In"}
-                                </Link>
-                            </Grid>
-                        </Grid>
+
                     </div>
                 </Grid>
             </Grid>
@@ -80,5 +77,4 @@ const SingUpForm = ({ setIsLogIn }) => {
 
     );
 };
-
-export default SingUpForm;
+export default MakeUser;

@@ -1,15 +1,17 @@
 import { Button, Container, Grid, Paper } from "@material-ui/core";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { addToCart } from "../../../../Store/Actions/CartAction";
 import { selectedProduct } from "../../../../Store/Actions/ProductsAction";
+import Footer from "../../../Footer/Footer";
 import NavBar from "../../../NavBar/NavBar";
 import ProductDetailsHeader from "./ProductDetailsHeader";
 
 
 
 const ProductDetails = () => {
+  const history=useHistory()
   const { id } = useParams()
   const dispatch = useDispatch()
   useEffect(() => {
@@ -19,13 +21,14 @@ const ProductDetails = () => {
 
   const handleAddToCart = (pd) => {
     dispatch(addToCart(pd))
+    history.push('/')
   }
   return (
     <>
       <NavBar />
       <ProductDetailsHeader product={product}/>
       <Container>
-        <Paper className="productDetails">
+        <Paper className="productDetails mb-5">
           <Grid
             container
             justify="center"
@@ -39,12 +42,13 @@ const ProductDetails = () => {
               <h6>Description</h6>
               <p>{product.description}</p>
               <h4 className="pb-4"><b>Price: </b>${product.price}</h4>
-              <Button color="secondary" variant="contained" className='add-to-cart' onClick={() => handleAddToCart(product)}>Add to cart</Button>
+              <Button color="secondary" variant="contained" className='full-width-button' onClick={() => handleAddToCart(product)}>Add to cart</Button>
             </Grid>
           </Grid>
         </Paper>
 
       </Container>
+      <Footer/>
     </>
 
 

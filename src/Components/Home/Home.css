@@ -28,15 +28,16 @@ p.product-category {
 }
 p.product-price {
     color: #4e54c8;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 2px 2px;
+    font-weight: 600;
 }
-button.add-to-cart, .newsletter {
+button.full-width-button, .newsletter {
     display: block;
     width: 100%;
     margin: 7px 0;
 }
-button.add-to-cart.btn.btn-primary:hover{
+button.full-width-button.btn.btn-primary:hover{
     
     border-color: #fe3638;
     background-color: #fe3638

@@ -23,9 +23,9 @@ import Orders from './SharedDashboard/Orders';
 import CreateProduct from './SuperAdminDashboard/CreateProduct';
 import AllUserDashboard from './SharedDashboard/AllUserDashboard';
 import UserOrders from './UsersDashboard/UserOrders';
-import PendingOrders from './AdminDashboard/PendingOrders';
 import Users from './SuperAdminDashboard/Users';
 import Products from './SuperAdminDashboard/Products';
+import MakeUser from './SuperAdminDashboard/MakeUser';
 
 
 const drawerWidth = 220;
@@ -33,9 +33,6 @@ const drawerWidth = 220;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-  },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: 'flex',
@@ -167,12 +164,15 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           {
-            exactRoute === "Orders" ? <Orders />:
+            exactRoute === "Orders" ? <Orders route={"orders"}/>:
             exactRoute === "Create Product" ? <CreateProduct setExactRoute={setExactRoute}/>:
             exactRoute === "Dashboard" ? <AllUserDashboard />:
             exactRoute === "User Orders" ? <UserOrders /> :
-            exactRoute === "Pending Orders" ? <PendingOrders />:
+            exactRoute === "Pending Orders" ? <Orders route={"pending"}/>:
+            exactRoute === "Ongoing Orders" ? <Orders route={"ongoing"}/>:
+            exactRoute === "Complete Orders" ? <Orders route={"done"}/>:
             exactRoute === "Users" ? <Users />:
+             exactRoute === "Add Users" ? <MakeUser  setExactRoute={setExactRoute}/>:
             exactRoute === "Products" && <Products />
           }
 

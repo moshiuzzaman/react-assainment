@@ -7,3 +7,7 @@
     text-decoration: none;
     padding: 0px 17px;
 }
+svg.header-logo {
+    font-size: 75px;
+    color: #f50057;
+}

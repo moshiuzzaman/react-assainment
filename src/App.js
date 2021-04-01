@@ -12,6 +12,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import PrivetRoute from './Components/Authentication/PrivetRoute';
 import { SnackbarProvider } from 'notistack';
 import ProductDetails from './Components/Home/TrandingProducts/ProductDetails/ProductDetails';
+import Shop from './Components/Shop/Shop';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/shop">
+            <Shop />
           </Route>
           <Route path="/product-view/:id">
             <ProductDetails/>

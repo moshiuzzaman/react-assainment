@@ -1,4 +1,4 @@
-import { Button, Container, Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import React, { useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -6,11 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../../../Store/Actions/CartAction';
 import { getPaginationProducts, getProducts } from '../../../Store/Actions/ProductsAction';
-import './TrendingProducts.css'
 
 
 
-const TrendingProducts = () => {
+const ShopProducts = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getProducts())
@@ -43,10 +42,10 @@ const handlePrevious = () => {
     }
 
     return (
-        <Container className="trending-products-container">
+        <Grid item md={8} className="trending-products-container p-4">
             <Grid container id="shop" className="mb-4">
                 <Grid item xs={6} >
-                    <h4>Trending Products </h4>
+                    <h4>Shop Products </h4>
                 </Grid>
                 <Grid item xs={6} >
                     <Button
@@ -77,8 +76,8 @@ const handlePrevious = () => {
                         <Grid
                             item key={index}
                             className="p-0 m-0"
-                            md={3}
-                            sm={4}
+                            md={4}
+                            sm={6}
                             xs={12}
                         >
                             <div className="singleProducts">
@@ -124,8 +123,8 @@ const handlePrevious = () => {
                     color="secondary"
                 />
             </Grid>
-        </Container >
+        </Grid >
     );
 };
 
-export default TrendingProducts;
+export default ShopProducts;

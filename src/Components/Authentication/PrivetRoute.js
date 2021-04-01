@@ -9,7 +9,6 @@ const PrivetRoute = ({ children, ...rest }) => {
       const token = sessionStorage.getItem("token")
       let decoded
       token===null ? decoded= {}:decoded = jwt_decode(token);
-     
       const finalUser = { ...user, ...decoded}
 
     

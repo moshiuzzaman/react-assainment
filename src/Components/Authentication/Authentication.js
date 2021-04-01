@@ -6,16 +6,22 @@ import { Container } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
 
 const Authentication = (props) => {
-  const [isLogin, setIsLogIn]=useState(true)
- 
+  const [isLogin, setIsLogIn] = useState(true)
+
   return (
     <>
-    <NavBar/>
-    <Container>
-       {
-          isLogin ? <LoginForm setIsLogIn={setIsLogIn}/> : <SingUpForm setIsLogIn={setIsLogIn}/>
+      <NavBar />
+      <Container>
+        {
+          isLogin
+            ? <LoginForm
+              setIsLogIn={setIsLogIn}
+            />
+            : <SingUpForm
+              setIsLogIn={setIsLogIn}
+            />
         }
-     </Container>
+      </Container>
     </>
   );
 };

@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const ALL_ORDERS = "ALL_ORDERS"
 export const CHANGE_ORDER_STATUS = "CHANGE_ORDER_STATUS"
-export const PENDING_ORDERS="PENDING_ORDERS"
+export const DIFFERENT_ORDERS="DIFFERENT_ORDERS"
 export const USER_ORDERS="USER_ORDERS"
 
 export const allOrders = () => {
@@ -44,12 +44,12 @@ export const changeOrderStatus = (status,id) => {
             })
     }
 }
-export const pendingOrders = () => {
+export const differentOrders = (ordersType) => {
     return (dispatch) => {
-        axios.get('http://localhost:7000/orders/pending-orders', { headers: { token: sessionStorage.getItem("token") } })
+        axios.post('http://localhost:7000/orders/different-orders',{ordersType}, { headers: { token: sessionStorage.getItem("token") } })
             .then(res => {
                 dispatch({
-                    type: PENDING_ORDERS,
+                    type: DIFFERENT_ORDERS,
                     payload: res.data
                 })
             }).catch(err => {

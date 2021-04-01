@@ -1,5 +1,5 @@
-import { Button, Grid, Paper } from '@material-ui/core';
-import React, { useEffect} from 'react';
+import { Button, Grid, NativeSelect, Paper } from '@material-ui/core';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -11,14 +11,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { allUsers,deleteUser } from '../../../Store/Actions/UsersAction';
+import { allUsers, deleteUser, updateUserRole } from '../../../Store/Actions/UsersAction';
 
 const columns = [
     { id: 'name', label: 'Name', minWidth: 100 },
     { id: 'email', label: 'Email', minWidth: 100 },
     { id: 'role', label: 'Role', minWidth: 50 },
     { id: 'deleteUser', label: 'Delete User', minWidth: 30 },
-    
+
 ];
 
 
@@ -38,9 +38,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Users = ({setExactRoute}) => {
+const Users = ({ setExactRoute }) => {
     const classes = useStyles();
-    const paperRoot= clsx(classes.paper, classes.root);
+    const paperRoot = clsx(classes.paper, classes.root);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -58,10 +58,13 @@ const Users = ({setExactRoute}) => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(allUsers())
-        
-    }, [dispatch])
 
-    const handleDeleteUser=(userId)=>{
+    }, [dispatch])
+    const handleUserRole = (event, id) => {
+        const role = event.target.value;
+        dispatch(updateUserRole(id, role))
+    };
+    const handleDeleteUser = (userId) => {
         dispatch(deleteUser(userId))
     }
     return (
@@ -95,11 +98,19 @@ const Users = ({setExactRoute}) => {
                                                     {user.email}
                                                 </TableCell>
                                                 <TableCell>
-                                                    {user.role}
-                                                </TableCell>    
-                                                   <TableCell>
-                                                    <Button onClick={()=>handleDeleteUser(user._id)}>Delete</Button>
-                                                </TableCell>    
+                                                    <NativeSelect
+                                                        value={user.role}
+                                                        onChange={(e) => handleUserRole(e, user._id)}
+                                                    >
+                                                        <option value="">Role</option>
+                                                        <option value="user">User</option>
+                                                        <option value="admin">Admin</option>
+                                                        <option value="super admin">Super Admin</option>
+                                                    </NativeSelect>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Button onClick={() => handleDeleteUser(user._id)}>Delete</Button>
+                                                </TableCell>
                                             </TableRow>
                                         );
                                     })}

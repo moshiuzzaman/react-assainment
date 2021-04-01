@@ -9,6 +9,7 @@ const initialState = {
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART: {
+
             let product = action.payload
             const isAlreadyAdded = state.cart.find(pd => pd._id === product._id)
             if (typeof isAlreadyAdded === "undefined") {
@@ -18,6 +19,7 @@ const cartReducer = (state = initialState, action) => {
                 isAlreadyAdded.quantity = isAlreadyAdded.quantity + 1
                 return { ...state, cart: [...state.cart] }
             }
+
         }
         case INCREASE_QUANTITY: {
             const id = action.payload

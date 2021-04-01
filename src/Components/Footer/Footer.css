@@ -1,9 +1,9 @@
 
-
 .footer-section {
     padding-top: 91px;
-    background: linear-gradient(45deg, white, #ffffff85) , url('https://i.ibb.co/xzkfnDk/map.jpg');
     background-size: cover;
+    background-color: #2b3445;
+    color: white;
 }
 .footer-section li {
     list-style: none;
@@ -13,15 +13,22 @@
 .footerIcons {
     font-size: 47px;
     padding: 13px;
-    background: #239f9f;
+    background: #f50057;
     margin: 8px;
     color: white;
     border-radius: 39px;
-    border: 1px solid #239f9f;
+    border: 1px solid #f50057;
     cursor: pointer;
 }
 .footerIcons:hover{
     background: none;
-    color: #239f9f; 
+    color: #f50057; 
     
+}
+.footer-copyright p {
+    color: white !important;
+}
+svg.footer-logo {
+    font-size: 89px;
+    margin-bottom: 20px;
 }
