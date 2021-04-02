@@ -1,36 +1,37 @@
 import { Button, Grid } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../../../Store/Actions/CartAction';
 import { getPaginationProducts, getProducts } from '../../../Store/Actions/ProductsAction';
 
 
 
-const ShopProducts = () => {
+const ShopProducts = ({allProducts}) => {
+
     const dispatch = useDispatch()
+    
     useEffect(() => {
         dispatch(getProducts())
-        dispatch(getPaginationProducts(1))
     }, [dispatch])
 
 
     const [page, setPage] = React.useState(1);
+    const [productsPerPage]=useState(9)
+
     const handleChange = (event, value) => {
         setPage(value);
-        dispatch(getPaginationProducts(value))
-
     };
-    const products = useSelector(
-        state => state.products.products
-    )
-    const paginationProducts = useSelector(
-        state => state.products.paginationProducts
-    )
-    const count = Math.ceil(products.length / 10) + 1
-    let eightProducts = paginationProducts
+    
+
+
+    const indexOfLastProduct=page*productsPerPage
+    const indexOfFirstProduct=indexOfLastProduct-productsPerPage
+        const currentProducts=allProducts.slice(indexOfFirstProduct,indexOfLastProduct)
+    
+    const count = Math.ceil(allProducts.length / productsPerPage) 
 
     const handleNext = () => {
         page !== count && setPage(page + 1)
@@ -72,7 +73,7 @@ const handlePrevious = () => {
 
 
                 {
-                    eightProducts.map((pd, index) =>
+                    currentProducts.map((pd, index) =>
                         <Grid
                             item key={index}
                             className="p-0 m-0"

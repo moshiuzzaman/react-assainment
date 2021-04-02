@@ -2,18 +2,20 @@ import { Accordion, AccordionDetails, AccordionSummary, Button, Grid, Paper } fr
 import React, { useState } from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const ShopFilter = () => {
+const ShopFilter = ({handleSearchByName}) => {
     const [expanded, setExpanded] =useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+
+
     return (
         <Grid item md={4} xs={12} >
             <Paper >
                 <div className="sidebar">
                     <h5><b>Search By Name</b></h5>
-                    <input type="text" name="" id="" />
+                    <input onChange={handleSearchByName} type="text" name="" id="" />
                     <Button variant="contained" color="secondary" className="full-width-button">Search </Button>
                     <h5 className="my-4"><b>Search By Category</b></h5>
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>

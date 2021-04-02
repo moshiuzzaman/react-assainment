@@ -1,13 +1,10 @@
 import { CREATE_PRODUCTS, DELETE_PRODUCT, PAGINATION_PRODUCTS, PRODUCTS, QUICK_VIEW } from "../Actions/ProductsAction"
+import { productsInitialState } from "./initialState"
 
 
-const initialState = {
-    paginationProducts:[],
-    products: [],
-    selectedProduct:{}
-}
 
-const productsReducer = (state = initialState, action) => {
+
+const productsReducer = (state = productsInitialState, action) => {
     switch (action.type) {
         case PRODUCTS:
             return { ...state, products: action.payload }

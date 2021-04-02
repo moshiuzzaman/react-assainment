@@ -5,12 +5,14 @@ import cartReducer from './Reducers/CartReducer';
 import AuthenticationReducer from './Reducers/UsersReducer'
 import productsReducer from './Reducers/ProductsReducer';
 import OrdersReducer from './Reducers/OrdersReducer';
+import shopReducer from './Reducers/ShopReducer';
 
 const rootReducer=combineReducers({
     login:AuthenticationReducer,
     products:productsReducer,
     cart: cartReducer,
-    orders:OrdersReducer
+    orders:OrdersReducer,
+    shop:shopReducer
 })
 const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)))
 export default store
